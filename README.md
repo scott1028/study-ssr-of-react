@@ -1,10 +1,12 @@
 ## Existing Issues
 
-- At first request, the file-loader of webpack will not work well, it responses a {} instead of a resource path.
+- At first request, the file-loader of webpack will not work well, it responses a {} instead of a resource path. (resolved by set target: 'node')
+- In target='node', you must disable style-loader or choose another loader named isomorphic-style-loader, because the style-loader will operate DOM by document & window reference.
 
 ## With SSR How to start
 
 - Ref: https://medium.com/bucharestjs/upgrading-a-create-react-app-project-to-a-ssr-code-splitting-setup-9da57df2040a
+- Ref: https://github.com/kriasoft/isomorphic-style-loader
 
 ```
 yarn build
