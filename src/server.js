@@ -20,6 +20,7 @@ const ssrMiddleware = (req, res, next) => {
   // point to the html file created by CRA's build tool
   // point to compiled index.html
   const filePath = path.resolve(__dirname, "..", "build", "index.html");
+  // const filePath = path.resolve(__dirname, "..", "public", "index.html");
 
   fs.readFile(filePath, "utf8", (err, htmlData) => {
     if (err) {
