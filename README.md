@@ -1,7 +1,7 @@
-## Existing Issues
+## Existing Issues & resolves
 
 - At first request, the file-loader of webpack will not work well, it responses a {} instead of a resource path. (resolved by set target: 'node')
-- In target='node', you must disable style-loader or if you still want a style-loader you can choose another loader named isomorphic-style-loader, because the style-loader will operate DOM by document & window reference.
+- In target='node', you must disable style-loader or if you still want a style-loader you can choose another loader named isomorphic-style-loader, because the style-loader will operate DOM by document & window reference that will cause error for your server.
 
 ## With SSR How to start
 
@@ -9,14 +9,17 @@
 - Ref: https://github.com/kriasoft/isomorphic-style-loader
 
 ```
-yarn build
-NODE_ENV=production node src/bootstrap.js
+make clean
+```
+
+```
+make build
 ```
 
 #### or
 
 ```
-make ssr
+make lift
 ```
 
 ##
