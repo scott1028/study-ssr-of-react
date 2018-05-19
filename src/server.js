@@ -19,8 +19,7 @@ const fs = require("fs");
 const ssrMiddleware = (req, res, next) => {
   // point to the html file created by CRA's build tool
   // point to compiled index.html
-  const filePath = path.resolve(__dirname, "..", "build", "index.html");
-  // const filePath = path.resolve(__dirname, "..", "public", "index.html");
+  const filePath = path.resolve("build", "client", "index.html");
 
   fs.readFile(filePath, "utf8", (err, htmlData) => {
     if (err) {
@@ -48,7 +47,8 @@ router.use("^/$", ssrMiddleware);
 // Image, CSS, etc
 // other static resources should just be served as they are
 router.use(
-  express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" })
+  // point to compiled index.html
+  express.static(path.resolve("build", "client"), { maxAge: "30d" })
 );
 
 // tell the app to use the above rules

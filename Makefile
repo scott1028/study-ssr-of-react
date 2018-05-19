@@ -1,14 +1,12 @@
-build:
-	yarn build
-
-ssr: build
-	NODE_ENV=production node src/bootstrap.js
-
 clean:
 	rm -rf build
 
-buildSSR:
-	NODE_ENV=production yarn webpack --config config/webpack.config.dev.server.js
+build:
+	NODE_ENV=development yarn webpack --config config/webpack.config.dev.js
+	NODE_ENV=development yarn webpack --config config/webpack.config.dev.server.js
+	# NODE_ENV=production yarn webpack --config config/webpack.config.prd.js
+	# NODE_ENV=production yarn webpack --config config/webpack.config.prd.server.js
 
-buildFrontend:
-	NODE_ENV=production yarn webpack --config config/webpack.config.prod.js
+lift: build
+	node build/server/static/js/bundle.js
+	# node build/server/static/js/main.js
