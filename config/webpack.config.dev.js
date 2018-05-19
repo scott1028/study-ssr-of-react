@@ -161,7 +161,12 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              require.resolve('style-loader'),
+              {
+                loader: require.resolve('style-loader'),
+                // options: {
+                //   hmr: false,
+                // },
+              },
               {
                 loader: require.resolve('css-loader'),
                 options: {
