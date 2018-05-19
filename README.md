@@ -1,7 +1,7 @@
 ## Existing Issues
 
 - At first request, the file-loader of webpack will not work well, it responses a {} instead of a resource path. (resolved by set target: 'node')
-- In target='node', you must disable style-loader or choose another loader named isomorphic-style-loader, because the style-loader will operate DOM by document & window reference.
+- In target='node', you must disable style-loader or if you still want a style-loader you can choose another loader named isomorphic-style-loader, because the style-loader will operate DOM by document & window reference.
 
 ## With SSR How to start
 
