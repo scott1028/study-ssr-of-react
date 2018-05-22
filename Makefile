@@ -5,6 +5,8 @@ build:
 	NODE_ENV=development yarn webpack --config config/webpack.config.dev.js
 	NODE_ENV=development yarn webpack --config config/webpack.config.dev.server.js
 
+dev: clean lift
+
 lift: build
 	node build/server/static/js/bundle.js
 
