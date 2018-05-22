@@ -1,26 +1,22 @@
 'use strict';
 
 const gulp = require('gulp');
-const exec = require('child_process').exec;
+const { spawn } = require('child_process');
 
-const main = (cb) => {
+const main = () => {
   var pid = null;
   return (event) => {
     try {
-      process.kill(pid);
+      pid.kill('SIGHUP');
     }
     catch(e) {}
-    pid = exec('make dev', function (err, stdout, stderr) {
-      console.log(stdout);
-      console.log(stderr);
-      cb(err);
-    });
+    pid = spawn('make', ['dev']);
   };
 };
 
 // main
-gulp.task('default', function(cb) {
-  var app = main(cb);
+gulp.task('default', function() {
+  var app = main();
   gulp.watch('src/**/*.js', app);
   app();
 });
