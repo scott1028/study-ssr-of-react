@@ -7,6 +7,9 @@ build:
 
 dev: clean lift
 
+yarn:
+	yarn gulp
+
 lift: build
 	node build/server/static/js/bundle.js
 
